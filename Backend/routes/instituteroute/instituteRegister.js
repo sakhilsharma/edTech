@@ -1,6 +1,5 @@
 const bcrypt = require("bcryptjs");
-const College = require('../database/college.js');//college model
-const jwt = require('jsonwebtoken');
+const College = require('../../database/college.js');//college model
 // Controller for college registration
 const registerCollege = async (req, res) => {
     const { name, email, contact, password, location } = req.body;

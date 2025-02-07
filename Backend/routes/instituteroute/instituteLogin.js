@@ -1,4 +1,4 @@
-const College = require('../database/college.js');//User model
+const College = require('../../database/college.js');//college model
 const jwt = require('jsonwebtoken');
 const collegelogin = async (req, res) => {
     try {
@@ -7,7 +7,7 @@ const collegelogin = async (req, res) => {
         // Find user
         const college = await College.findOne({ email }).select("+password");//to get a password field along with email 
         if (!college) return res.status(400).json({ message: "college does not exist" });
-
+         console.log(college);
         // Compare passwords
         const isMatch = await college.comparePassword(password);  // bcrypt.compare handles hashing internally
         if (!isMatch) return res.status(400).json({ message: "password no match" });
